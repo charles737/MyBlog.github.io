@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"charles737.me","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前言基于MySQL的sql练习题目。时常练习，以防手生。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql练习题目">
+<meta property="og:url" content="https://charles737.me/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Charles的博客">
+<meta property="og:description" content="前言基于MySQL的sql练习题目。时常练习，以防手生。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-13T01:44:19.859Z">
+<meta property="article:modified_time" content="2020-10-16T14:20:04.535Z">
+<meta property="article:author" content="Charles">
+<meta property="article:tag" content="sql">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://charles737.me/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>sql练习题目 | Charles的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Charles的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎来到我的博客！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">1</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">2</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://charles737.me/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.jpg">
+      <meta itemprop="name" content="Charles">
+      <meta itemprop="description" content="Email: cl426886@gmail.com">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Charles的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          sql练习题目
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-13 09:44:19" itemprop="dateCreated datePublished" datetime="2020-10-13T09:44:19+08:00">2020-10-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-16 22:20:04" itemprop="dateModified" datetime="2020-10-16T22:20:04+08:00">2020-10-16</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>基于MySQL的sql练习题目。时常练习，以防手生。</p>
+<a id="more"></a>
+
+<h3 id="sql编写规范"><a href="#sql编写规范" class="headerlink" title="sql编写规范"></a>sql编写规范</h3><ol>
+<li>字段别名使用英文单词的组合（使用下划线分割多个单词），不要使用拼音</li>
+<li>字段别名和子查询别名使用<code>as</code>关键字</li>
+<li>SQL语句使用全小写字符</li>
+<li>SQL语句中<code>from</code>、<code>where</code>、<code>on</code>、<code>join</code>、<code>left join</code>、<code>inner join</code>、<code>right join</code>、<code>group by</code>、<code>order by</code>、<code>and</code>、<code>or</code>、<code>having</code>等关键字另起一行</li>
+<li>不要在单独的SQL查询语句中为表起别名</li>
+<li>将时间范围作为查询条件时，使用<code>&gt;=</code>和<code>&lt;</code>作为时间范围，不要使用<code>&gt;=</code>和<code>&lt;=</code>写法</li>
+<li>子查询别名尽量使用<code>it(inner table)</code>、<code>t1(temp table 1)</code>、<code>rs1(record result 1)</code>命名</li>
+</ol>
+<h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><h4 id="学生表"><a href="#学生表" class="headerlink" title="学生表"></a>学生表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Student`</span>(</span><br><span class="line"><span class="string">`s_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line"><span class="string">`s_name`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line"><span class="string">`s_birth`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line"><span class="string">`s_sex`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">PRIMARY <span class="keyword">KEY</span>(<span class="string">`s_id`</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="课程表"><a href="#课程表" class="headerlink" title="课程表"></a>课程表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Course`</span>(</span><br><span class="line"><span class="string">`c_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line"><span class="string">`c_name`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line"><span class="string">`t_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">PRIMARY <span class="keyword">KEY</span>(<span class="string">`c_id`</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="教师表"><a href="#教师表" class="headerlink" title="教师表"></a>教师表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Teacher`</span>(</span><br><span class="line"><span class="string">`t_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line"><span class="string">`t_name`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">PRIMARY <span class="keyword">KEY</span>(<span class="string">&#x27;t_id&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="成绩表"><a href="#成绩表" class="headerlink" title="成绩表"></a>成绩表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Score`</span>(</span><br><span class="line"><span class="string">`s_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line"><span class="string">`c_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line"><span class="string">`s_score`</span> <span class="built_in">INT</span>(<span class="number">3</span>),</span><br><span class="line">PRIMARY <span class="keyword">KEY</span>(<span class="string">`s_id`</span>,<span class="string">`c_id`</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="插入学生表测试数据"><a href="#插入学生表测试数据" class="headerlink" title="插入学生表测试数据"></a>插入学生表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;赵无极&#x27;</span>,<span class="string">&#x27;1990-01-01&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;钱多多&#x27;</span>,<span class="string">&#x27;1990-12-12&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;孙大圣&#x27;</span>,<span class="string">&#x27;1990-05-05&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;04&#x27;</span>,<span class="string">&#x27;李云龙&#x27;</span>,<span class="string">&#x27;1990-08-08&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;05&#x27;</span>,<span class="string">&#x27;周芷若&#x27;</span>,<span class="string">&#x27;1991-12-02&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;06&#x27;</span>,<span class="string">&#x27;吴姬&#x27;</span>,<span class="string">&#x27;1992-03-03&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;07&#x27;</span>,<span class="string">&#x27;郑妲己&#x27;</span>,<span class="string">&#x27;1989-07-07&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;08&#x27;</span>,<span class="string">&#x27;花木兰&#x27;</span>,<span class="string">&#x27;1990-01-31&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="课程表测试数据"><a href="#课程表测试数据" class="headerlink" title="课程表测试数据"></a>课程表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Course <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;语文&#x27;</span>,<span class="string">&#x27;02&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Course <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;数学&#x27;</span>,<span class="string">&#x27;01&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Course <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;英语&#x27;</span>,<span class="string">&#x27;03&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="教师表测试数据"><a href="#教师表测试数据" class="headerlink" title="教师表测试数据"></a>教师表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Teacher <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;张三丰&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Teacher <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;李老道&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Teacher <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;王半仙&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="成绩表测试数据"><a href="#成绩表测试数据" class="headerlink" title="成绩表测试数据"></a>成绩表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;01&#x27;</span>,<span class="number">80</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;02&#x27;</span>,<span class="number">90</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;03&#x27;</span>,<span class="number">99</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;01&#x27;</span>,<span class="number">70</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;02&#x27;</span>,<span class="number">60</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;03&#x27;</span>,<span class="number">80</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;01&#x27;</span>,<span class="number">80</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;02&#x27;</span>,<span class="number">80</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;03&#x27;</span>,<span class="number">80</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;04&#x27;</span>,<span class="string">&#x27;01&#x27;</span>,<span class="number">50</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;04&#x27;</span>,<span class="string">&#x27;02&#x27;</span>,<span class="number">30</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;04&#x27;</span>,<span class="string">&#x27;03&#x27;</span>,<span class="number">20</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;05&#x27;</span>,<span class="string">&#x27;01&#x27;</span>,<span class="number">77</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;05&#x27;</span>,<span class="string">&#x27;02&#x27;</span>,<span class="number">88</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;06&#x27;</span>,<span class="string">&#x27;01&#x27;</span>,<span class="number">33</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;06&#x27;</span>,<span class="string">&#x27;03&#x27;</span>,<span class="number">55</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;07&#x27;</span>,<span class="string">&#x27;02&#x27;</span>,<span class="number">88</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Score <span class="keyword">values</span>(<span class="string">&#x27;07&#x27;</span>,<span class="string">&#x27;03&#x27;</span>,<span class="number">99</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="SQL语句练习题目"><a href="#SQL语句练习题目" class="headerlink" title="SQL语句练习题目"></a>SQL语句练习题目</h3><h4 id="1-查询“01”课程比“02”课程成绩高的学生信息、课程分数"><a href="#1-查询“01”课程比“02”课程成绩高的学生信息、课程分数" class="headerlink" title="1. 查询“01”课程比“02”课程成绩高的学生信息、课程分数"></a>1. 查询“01”课程比“02”课程成绩高的学生信息、课程分数</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*, scr1.s_score <span class="keyword">as</span> <span class="number">01</span>_score, scr2.s_score <span class="keyword">as</span> <span class="number">02</span>_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu, score <span class="keyword">as</span> scr1, score <span class="keyword">as</span> scr2</span><br><span class="line"><span class="keyword">where</span> stu.s_id = scr1.s_id</span><br><span class="line"><span class="keyword">and</span> stu.s_id = scr2.s_id</span><br><span class="line"><span class="keyword">and</span> scr1.c_id = <span class="string">&#x27;01&#x27;</span> </span><br><span class="line"><span class="keyword">and</span> scr2.c_id = <span class="string">&#x27;02&#x27;</span> </span><br><span class="line"><span class="keyword">and</span> scr1.s_score &gt; scr2.s_score;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+<th align="center">01_score</th>
+<th align="center">02_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">02</td>
+<td align="center">钱多多</td>
+<td align="center">1990-12-12</td>
+<td align="center">男</td>
+<td align="center">70</td>
+<td align="center">60</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">李云龙</td>
+<td align="center">1990-08-08</td>
+<td align="center">男</td>
+<td align="center">50</td>
+<td align="center">30</td>
+</tr>
+</tbody></table>
+<h4 id="2-查询“01”课程比“02”课程成绩低的学生信息、课程分数"><a href="#2-查询“01”课程比“02”课程成绩低的学生信息、课程分数" class="headerlink" title="2. 查询“01”课程比“02”课程成绩低的学生信息、课程分数"></a>2. 查询“01”课程比“02”课程成绩低的学生信息、课程分数</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*,scr1.s_score <span class="keyword">as</span> <span class="number">01</span>_score, scr2.s_score <span class="keyword">as</span> <span class="number">02</span>_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> score <span class="keyword">as</span> scr1</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr1.s_id</span><br><span class="line"><span class="keyword">and</span> scr1.c_id = <span class="string">&#x27;01&#x27;</span> </span><br><span class="line"><span class="keyword">or</span> scr1.c_id = <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">join</span> score <span class="keyword">as</span> scr2</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr2.s_id <span class="keyword">and</span> scr2.c_id = <span class="string">&#x27;02&#x27;</span> </span><br><span class="line"><span class="keyword">where</span> scr1.s_score &lt; scr2.s_score;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+<th align="center">01_score</th>
+<th align="center">02_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵无极</td>
+<td align="center">1990-01-01</td>
+<td align="center">男</td>
+<td align="center">80</td>
+<td align="center">90</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">周芷若</td>
+<td align="center">1991-12-02</td>
+<td align="center">女</td>
+<td align="center">76</td>
+<td align="center">87</td>
+</tr>
+</tbody></table>
+<h4 id="3-查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩"><a href="#3-查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩" class="headerlink" title="3. 查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩"></a>3. 查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.s_id, stu.s_name, <span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(scr.s_score), <span class="number">2</span>) <span class="keyword">as</span> avg_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr.s_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> stu.s_id, stu.s_name</span><br><span class="line"><span class="keyword">HAVING</span> avg_score &gt;= <span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">avg_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵无极</td>
+<td align="center">89.67</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">钱多多</td>
+<td align="center">70.00</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">孙大圣</td>
+<td align="center">80.00</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">周芷若</td>
+<td align="center">81.50</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">郑妲己</td>
+<td align="center">93.50</td>
+</tr>
+</tbody></table>
+<h4 id="4-查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）"><a href="#4-查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）" class="headerlink" title="4. 查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）"></a>4. 查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.s_id, stu.s_name, <span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(scr.s_score), <span class="number">2</span>) <span class="keyword">as</span>  avg_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr.s_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> stu.s_id, stu.s_name</span><br><span class="line"><span class="keyword">HAVING</span> avg_score &lt; <span class="number">60</span></span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> stu.s_id, stu.s_name, <span class="number">0</span> <span class="keyword">as</span> avg_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">where</span> stu.s_id <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">select</span> <span class="keyword">distinct</span> s_id </span><br><span class="line">    <span class="keyword">from</span> score);</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">avg_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">04</td>
+<td align="center">李云龙</td>
+<td align="center">33.33</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">吴姬</td>
+<td align="center">32.50</td>
+</tr>
+<tr>
+<td align="center">08</td>
+<td align="center">花木兰</td>
+<td align="center">0.00</td>
+</tr>
+</tbody></table>
+<h4 id="5-查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩"><a href="#5-查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩" class="headerlink" title="5. 查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩"></a>5. 查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.s_id, stu.s_name, <span class="keyword">count</span>(scr.c_id) <span class="keyword">as</span> sum_course, <span class="keyword">sum</span>(scr.s_score) <span class="keyword">as</span> sum_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr.s_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> stu.s_id, stu.s_name;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">sum_course</th>
+<th align="center">sum_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵无极</td>
+<td align="center">3</td>
+<td align="center">269</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">钱多多</td>
+<td align="center">3</td>
+<td align="center">210</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">孙大圣</td>
+<td align="center">3</td>
+<td align="center">240</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">李云龙</td>
+<td align="center">3</td>
+<td align="center">100</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">周芷若</td>
+<td align="center">2</td>
+<td align="center">163</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">吴姬</td>
+<td align="center">2</td>
+<td align="center">65</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">郑妲己</td>
+<td align="center">2</td>
+<td align="center">187</td>
+</tr>
+<tr>
+<td align="center">08</td>
+<td align="center">花木兰</td>
+<td align="center">0</td>
+<td align="center">NULL</td>
+</tr>
+</tbody></table>
+<h4 id="6-查询“李”姓老师的数量"><a href="#6-查询“李”姓老师的数量" class="headerlink" title="6. 查询“李”姓老师的数量"></a>6. 查询“李”姓老师的数量</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(tea.t_id) <span class="keyword">as</span> sum_李</span><br><span class="line"><span class="keyword">from</span> teacher <span class="keyword">as</span> tea</span><br><span class="line"><span class="keyword">where</span> tea.t_name <span class="keyword">like</span> <span class="string">&#x27;李%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">sum_李</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<h4 id="7-查询学过“张三”老师课程的学生信息"><a href="#7-查询学过“张三”老师课程的学生信息" class="headerlink" title="7. 查询学过“张三”老师课程的学生信息"></a>7. 查询学过“张三”老师课程的学生信息</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr.s_id</span><br><span class="line"><span class="keyword">where</span> scr.c_id <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">select</span> c_id </span><br><span class="line">    <span class="keyword">from</span> course</span><br><span class="line">    <span class="keyword">where</span> t_id = (</span><br><span class="line">        <span class="keyword">select</span> t_id </span><br><span class="line">        <span class="keyword">from</span> teacher</span><br><span class="line">        <span class="keyword">where</span> t_name = <span class="string">&#x27;张三&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵无极</td>
+<td align="center">1990-01-01</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">钱多多</td>
+<td align="center">1990-12-12</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">孙大圣</td>
+<td align="center">1990-05-05</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">李云龙</td>
+<td align="center">1990-08-08</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">周芷若</td>
+<td align="center">1991-12-02</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">郑妲己</td>
+<td align="center">1989-07-07</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
+<h4 id="8-查询没有学过“张三”老师课程的学生信息"><a href="#8-查询没有学过“张三”老师课程的学生信息" class="headerlink" title="8. 查询没有学过“张三”老师课程的学生信息"></a>8. 查询没有学过“张三”老师课程的学生信息</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">where</span> stu.s_id <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">select</span> stu.s_id </span><br><span class="line">    <span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line">    <span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line">    <span class="keyword">on</span> stu.s_id = scr.s_id</span><br><span class="line">    <span class="keyword">where</span> scr.c_id <span class="keyword">in</span> (</span><br><span class="line">        <span class="keyword">select</span> cor.c_id</span><br><span class="line">        <span class="keyword">from</span> course <span class="keyword">as</span> cor</span><br><span class="line">        <span class="keyword">join</span> teacher <span class="keyword">as</span> tea</span><br><span class="line">        <span class="keyword">on</span> cor.t_id = tea.t_id</span><br><span class="line">        <span class="keyword">where</span> tea.t_name = <span class="string">&#x27;张三&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">06</td>
+<td align="center">吴姬</td>
+<td align="center">1992-03-03</td>
+<td align="center">女</td>
+</tr>
+<tr>
+<td align="center">08</td>
+<td align="center">花木兰</td>
+<td align="center">1990-01-31</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
+<h4 id="9-查询学过编号为“01”且学过编号为“02”课程的学生信息"><a href="#9-查询学过编号为“01”且学过编号为“02”课程的学生信息" class="headerlink" title="9. 查询学过编号为“01”且学过编号为“02”课程的学生信息"></a>9. 查询学过编号为“01”且学过编号为“02”课程的学生信息</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu, score <span class="keyword">as</span> scr1, score <span class="keyword">as</span> scr2</span><br><span class="line"><span class="keyword">where</span> stu.s_id = scr1.s_id</span><br><span class="line"><span class="keyword">and</span> stu.s_id = scr2.s_id</span><br><span class="line"><span class="keyword">and</span> scr1.c_id = <span class="string">&#x27;01&#x27;</span> </span><br><span class="line"><span class="keyword">and</span> scr2.c_id = <span class="string">&#x27;02&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵无极</td>
+<td align="center">1990-01-01</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">钱多多</td>
+<td align="center">1990-12-12</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">孙大圣</td>
+<td align="center">1990-05-05</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">04</td>
+<td align="center">李云龙</td>
+<td align="center">1990-08-08</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">周芷若</td>
+<td align="center">1991-12-02</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
+<h4 id="10-查询学过编号为“01”但是没有学过编号为“02”课程的学生信息"><a href="#10-查询学过编号为“01”但是没有学过编号为“02”课程的学生信息" class="headerlink" title="10. 查询学过编号为“01”但是没有学过编号为“02”课程的学生信息"></a>10. 查询学过编号为“01”但是没有学过编号为“02”课程的学生信息</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">where</span> stu.s_id <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">select</span> s_id</span><br><span class="line">    <span class="keyword">from</span> score</span><br><span class="line">    <span class="keyword">where</span> c_id = <span class="string">&#x27;01&#x27;</span>)</span><br><span class="line"><span class="keyword">and</span> stu.s_id <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">select</span> s_id</span><br><span class="line">    <span class="keyword">from</span> score</span><br><span class="line">    <span class="keyword">where</span> c_id = <span class="string">&#x27;02&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">06</td>
+<td align="center">吴姬</td>
+<td align="center">1992-03-03</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
+<h4 id="11-查询没有学全所有课程的学生信息"><a href="#11-查询没有学全所有课程的学生信息" class="headerlink" title="11. 查询没有学全所有课程的学生信息"></a>11. 查询没有学全所有课程的学生信息</h4><p><strong>sql语句</strong></p>
+<p><strong>查询结果</strong></p>
+<h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h3 id="本文参考"><a href="#本文参考" class="headerlink" title="本文参考"></a>本文参考</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/43d8a7fa4de5">https://www.jianshu.com/p/43d8a7fa4de5</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/VNZr6FhtKW_kXkjZ7W89aQ">https://mp.weixin.qq.com/s/VNZr6FhtKW_kXkjZ7W89aQ</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Charles
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://charles737.me/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/" title="sql练习题目">https://charles737.me/2020/10/13/sql练习题目/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/sql/" rel="tag"># sql</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/11/hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="hexo 常用命令">
+      <i class="fa fa-chevron-left"></i> hexo 常用命令
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83"><span class="nav-number">2.</span> <span class="nav-text">sql编写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">建表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">学生表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">课程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E5%B8%88%E8%A1%A8"><span class="nav-number">3.3.</span> <span class="nav-text">教师表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E7%BB%A9%E8%A1%A8"><span class="nav-number">3.4.</span> <span class="nav-text">成绩表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%AD%A6%E7%94%9F%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.5.</span> <span class="nav-text">插入学生表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.6.</span> <span class="nav-text">课程表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E5%B8%88%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.7.</span> <span class="nav-text">教师表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E7%BB%A9%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.8.</span> <span class="nav-text">成绩表测试数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">SQL语句练习题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%AF%94%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E9%AB%98%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E3%80%81%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">1. 查询“01”课程比“02”课程成绩高的学生信息、课程分数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%AF%94%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E4%BD%8E%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E3%80%81%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">2. 查询“01”课程比“02”课程成绩低的学生信息、课程分数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E60%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.3.</span> <span class="nav-text">3. 查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%B0%8F%E4%BA%8E60%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%EF%BC%88%E5%8C%85%E6%8B%AC%E6%9C%89%E6%88%90%E7%BB%A9%E7%9A%84%E5%92%8C%E6%97%A0%E6%88%90%E7%BB%A9%E7%9A%84%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">4. 查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E9%80%89%E8%AF%BE%E6%80%BB%E6%95%B0%E3%80%81%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E6%80%BB%E6%88%90%E7%BB%A9"><span class="nav-number">4.5.</span> <span class="nav-text">5. 查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%9F%A5%E8%AF%A2%E2%80%9C%E6%9D%8E%E2%80%9D%E5%A7%93%E8%80%81%E5%B8%88%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-number">4.6.</span> <span class="nav-text">6. 查询“李”姓老师的数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.7.</span> <span class="nav-text">7. 查询学过“张三”老师课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.8.</span> <span class="nav-text">8. 查询没有学过“张三”老师课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E4%B8%94%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.9.</span> <span class="nav-text">9. 查询学过编号为“01”且学过编号为“02”课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.10.</span> <span class="nav-text">10. 查询学过编号为“01”但是没有学过编号为“02”课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E5%85%A8%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.11.</span> <span class="nav-text">11. 查询没有学全所有课程的学生信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">5.</span> <span class="nav-text">未完待续</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">本文参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Charles"
+      src="/images/author.jpg">
+  <p class="site-author-name" itemprop="name">Charles</p>
+  <div class="site-description" itemprop="description">Email: cl426886@gmail.com</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Charles</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
