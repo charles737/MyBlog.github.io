@@ -28,7 +28,7 @@
 <meta property="og:description" content="前言基于MySQL的sql练习题目。时常练习，以防手生。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-13T01:44:19.859Z">
-<meta property="article:modified_time" content="2020-10-23T13:18:34.251Z">
+<meta property="article:modified_time" content="2020-10-26T13:07:41.402Z">
 <meta property="article:author" content="Charles737">
 <meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
@@ -197,7 +197,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-23 21:18:34" itemprop="dateModified" datetime="2020-10-23T21:18:34+08:00">2020-10-23</time>
+                <time title="修改时间：2020-10-26 21:07:41" itemprop="dateModified" datetime="2020-10-26T21:07:41+08:00">2020-10-26</time>
               </span>
 
           
@@ -238,7 +238,7 @@
 
 <h4 id="成绩表"><a href="#成绩表" class="headerlink" title="成绩表"></a>成绩表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Score`</span>(</span><br><span class="line"><span class="string">`s_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line"><span class="string">`c_id`</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line"><span class="string">`s_score`</span> <span class="built_in">INT</span>(<span class="number">3</span>),</span><br><span class="line">PRIMARY <span class="keyword">KEY</span>(<span class="string">`s_id`</span>,<span class="string">`c_id`</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<h4 id="插入学生表测试数据"><a href="#插入学生表测试数据" class="headerlink" title="插入学生表测试数据"></a>插入学生表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;赵无极&#x27;</span>,<span class="string">&#x27;1990-01-01&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;钱多多&#x27;</span>,<span class="string">&#x27;1990-12-12&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;孙大圣&#x27;</span>,<span class="string">&#x27;1990-05-05&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;04&#x27;</span>,<span class="string">&#x27;李云龙&#x27;</span>,<span class="string">&#x27;1990-08-08&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;05&#x27;</span>,<span class="string">&#x27;周芷若&#x27;</span>,<span class="string">&#x27;1991-12-02&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;06&#x27;</span>,<span class="string">&#x27;吴姬&#x27;</span>,<span class="string">&#x27;1992-03-03&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;07&#x27;</span>,<span class="string">&#x27;郑妲己&#x27;</span>,<span class="string">&#x27;1989-07-07&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;08&#x27;</span>,<span class="string">&#x27;花木兰&#x27;</span>,<span class="string">&#x27;1990-01-31&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="插入学生表测试数据"><a href="#插入学生表测试数据" class="headerlink" title="插入学生表测试数据"></a>插入学生表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;赵无极&#x27;</span>,<span class="string">&#x27;1990-01-01&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;钱多多&#x27;</span>,<span class="string">&#x27;1990-12-12&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;孙大圣&#x27;</span>,<span class="string">&#x27;1990-05-05&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;04&#x27;</span>,<span class="string">&#x27;李云龙&#x27;</span>,<span class="string">&#x27;1990-08-08&#x27;</span>,<span class="string">&#x27;男&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;05&#x27;</span>,<span class="string">&#x27;周芷若&#x27;</span>,<span class="string">&#x27;1991-12-02&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;06&#x27;</span>,<span class="string">&#x27;吴无姬&#x27;</span>,<span class="string">&#x27;1992-03-03&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;07&#x27;</span>,<span class="string">&#x27;郑妲己&#x27;</span>,<span class="string">&#x27;1989-07-07&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Student <span class="keyword">values</span>(<span class="string">&#x27;08&#x27;</span>,<span class="string">&#x27;花木兰&#x27;</span>,<span class="string">&#x27;1990-01-31&#x27;</span>,<span class="string">&#x27;女&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <h4 id="课程表测试数据"><a href="#课程表测试数据" class="headerlink" title="课程表测试数据"></a>课程表测试数据</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Course <span class="keyword">values</span>(<span class="string">&#x27;01&#x27;</span>,<span class="string">&#x27;语文&#x27;</span>,<span class="string">&#x27;02&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Course <span class="keyword">values</span>(<span class="string">&#x27;02&#x27;</span>,<span class="string">&#x27;数学&#x27;</span>,<span class="string">&#x27;01&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Course <span class="keyword">values</span>(<span class="string">&#x27;03&#x27;</span>,<span class="string">&#x27;英语&#x27;</span>,<span class="string">&#x27;03&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
@@ -368,7 +368,7 @@
 </tr>
 <tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">32.50</td>
 </tr>
 <tr>
@@ -422,7 +422,7 @@
 </tr>
 <tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">2</td>
 <td align="center">65</td>
 </tr>
@@ -518,7 +518,7 @@
 </thead>
 <tbody><tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">1992-03-03</td>
 <td align="center">女</td>
 </tr>
@@ -588,7 +588,7 @@
 </thead>
 <tbody><tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">1992-03-03</td>
 <td align="center">女</td>
 </tr>
@@ -618,7 +618,7 @@
 </tr>
 <tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">1992-03-03</td>
 <td align="center">女</td>
 </tr>
@@ -680,7 +680,7 @@
 </tr>
 <tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">1992-03-03</td>
 <td align="center">女</td>
 </tr>
@@ -734,7 +734,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 </tr>
 <tr>
 <td align="center">花木兰</td>
@@ -744,7 +744,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.s_id, stu.s_name, <span class="keyword">round</span>(<span class="keyword">avg</span>(scr.s_score)) <span class="keyword">as</span> avg_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">on</span> stu.s_id = scr.s_id</span><br><span class="line"><span class="keyword">where</span> stu.s_id <span class="keyword">in</span> (</span><br><span class="line">    <span class="keyword">select</span> s_id</span><br><span class="line">    <span class="keyword">from</span> score</span><br><span class="line">    <span class="keyword">where</span> s_score &lt; <span class="number">60</span></span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> s_id</span><br><span class="line">    <span class="keyword">having</span> <span class="keyword">count</span>(c_id) &gt;= <span class="number">2</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> stu.s_id, stu.s_name;</span><br></pre></td></tr></table></figure>
 
 <p><strong>查询结果</strong></p>
-<p> s_id | s_name    | avg_score |<br>| :—-: | :—-: | :—-: |<br>| 04   | 李云龙    |        33 |<br>| 06   | 吴姬      |        33 |</p>
+<p> s_id | s_name    | avg_score |<br>| :—-: | :—-: | :—-: |<br>| 04   | 李云龙    |        33 |<br>| 06   | 吴无姬      |        33 |</p>
 <h4 id="16-查询“01”课程分数小于60，按分数降序排列的学生信息"><a href="#16-查询“01”课程分数小于60，按分数降序排列的学生信息" class="headerlink" title="16. 查询“01”课程分数小于60，按分数降序排列的学生信息"></a>16. 查询“01”课程分数小于60，按分数降序排列的学生信息</h4><p><strong>sql语句</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu.*, scr.c_id, scr.s_score</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu, score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">where</span> stu.s_id = scr.s_id</span><br><span class="line"><span class="keyword">and</span> scr.c_id = <span class="string">&quot;01&quot;</span></span><br><span class="line"><span class="keyword">and</span> scr.s_score &lt; <span class="number">60</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> scr.s_score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
 
@@ -770,7 +770,7 @@
 </tr>
 <tr>
 <td align="center">06</td>
-<td align="center">吴姬</td>
+<td align="center">吴无姬</td>
 <td align="center">1992-03-03</td>
 <td align="center">女</td>
 <td align="center">01</td>
@@ -893,7 +893,242 @@
 <td align="center">33.33</td>
 </tr>
 </tbody></table>
-<h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h3 id="本文参考"><a href="#本文参考" class="headerlink" title="本文参考"></a>本文参考</h3><ol>
+<h4 id="19-按各科成绩进行排序，并显示排名"><a href="#19-按各科成绩进行排序，并显示排名" class="headerlink" title="19. 按各科成绩进行排序，并显示排名"></a>19. 按各科成绩进行排序，并显示排名</h4><p><strong>sql语句</strong></p>
+<p><strong>查询结果</strong></p>
+<h4 id="20-查询学生的总成绩并进行排名"><a href="#20-查询学生的总成绩并进行排名" class="headerlink" title="20. 查询学生的总成绩并进行排名"></a>20. 查询学生的总成绩并进行排名</h4><p><strong>sql语句</strong></p>
+<p><strong>查询结果</strong></p>
+<h4 id="21-查询不同老师所教课程平均分，从高到低显示"><a href="#21-查询不同老师所教课程平均分，从高到低显示" class="headerlink" title="21. 查询不同老师所教课程平均分，从高到低显示"></a>21. 查询不同老师所教课程平均分，从高到低显示</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cur.t_id,tea.t_name,cur.c_id,<span class="keyword">round</span>(<span class="keyword">avg</span>(s_score),<span class="number">2</span>) <span class="keyword">as</span> avg_score</span><br><span class="line"><span class="keyword">from</span> course <span class="keyword">as</span> cur</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> score <span class="keyword">as</span> scr</span><br><span class="line"><span class="keyword">on</span> cur.c_id = scr.c_id</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> teacher <span class="keyword">as</span> tea</span><br><span class="line"><span class="keyword">on</span> cur.t_id = tea.t_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> cur.c_id,cur.t_id,tea.t_name</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> avg_score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">t_id</th>
+<th align="center">t_name</th>
+<th align="center">c_id</th>
+<th align="center">avg_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">张三</td>
+<td align="center">02</td>
+<td align="center">72.67</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">王五</td>
+<td align="center">03</td>
+<td align="center">68.50</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">李四</td>
+<td align="center">01</td>
+<td align="center">64.50</td>
+</tr>
+</tbody></table>
+<h4 id="22-查询所有课程的成绩第2名到第3名的学生信息及该课程成绩"><a href="#22-查询所有课程的成绩第2名到第3名的学生信息及该课程成绩" class="headerlink" title="22. 查询所有课程的成绩第2名到第3名的学生信息及该课程成绩"></a>22. 查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</h4><p><strong>sql语句</strong></p>
+<p><strong>查询结果</strong></p>
+<h4 id="23-统计各科成绩各分数段人数：课程编号，课程名称，-100-85-，-85-70-，-70-60-，-60-0-及所占百分比"><a href="#23-统计各科成绩各分数段人数：课程编号，课程名称，-100-85-，-85-70-，-70-60-，-60-0-及所占百分比" class="headerlink" title="23. 统计各科成绩各分数段人数：课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0]及所占百分比"></a>23. 统计各科成绩各分数段人数：课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0]及所占百分比</h4><p><strong>sql语句</strong></p>
+<p><strong>查询结果</strong></p>
+<h4 id="24-查询学生平均成绩及其名次"><a href="#24-查询学生平均成绩及其名次" class="headerlink" title="24. 查询学生平均成绩及其名次"></a>24. 查询学生平均成绩及其名次</h4><p><strong>sql语句</strong></p>
+<p><strong>查询结果</strong></p>
+<h4 id="25-查询各科成绩前三名的记录"><a href="#25-查询各科成绩前三名的记录" class="headerlink" title="25. 查询各科成绩前三名的记录"></a>25. 查询各科成绩前三名的记录</h4><p><strong>步骤</strong></p>
+<ol>
+<li>选出表scr2比表scr1成绩大的所有组</li>
+<li>选出小于3个，比当前id的成绩大的记录</li>
+</ol>
+<p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> scr1.s_id,scr1.c_id,scr1.s_score</span><br><span class="line"><span class="keyword">from</span> score <span class="keyword">as</span> scr1</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> score <span class="keyword">as</span> scr2</span><br><span class="line"><span class="keyword">on</span> scr1.c_id = scr2.c_id</span><br><span class="line"><span class="keyword">and</span> scr1.s_score &lt; scr2.s_score</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> scr1.s_id,scr1.c_id,scr1.s_score</span><br><span class="line"><span class="keyword">having</span> <span class="keyword">count</span>(scr2.s_id) &lt; <span class="number">3</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> scr1.c_id,scr1.s_score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">c_id</th>
+<th align="center">s_score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">01</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">01</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">01</td>
+<td align="center">76</td>
+</tr>
+<tr>
+<td align="center">01</td>
+<td align="center">02</td>
+<td align="center">90</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">02</td>
+<td align="center">89</td>
+</tr>
+<tr>
+<td align="center">05</td>
+<td align="center">02</td>
+<td align="center">87</td>
+</tr>
+<tr>
+<td align="center">01</td>
+<td align="center">03</td>
+<td align="center">99</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">03</td>
+<td align="center">98</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">03</td>
+<td align="center">80</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">03</td>
+<td align="center">80</td>
+</tr>
+</tbody></table>
+<h4 id="26-查询每门课程被选修的学生数"><a href="#26-查询每门课程被选修的学生数" class="headerlink" title="26. 查询每门课程被选修的学生数"></a>26. 查询每门课程被选修的学生数</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c_id,<span class="keyword">count</span>(s_id)</span><br><span class="line"><span class="keyword">from</span> score</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> c_id;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">c_id</th>
+<th align="center">count(s_id)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">02</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">03</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
+<h4 id="27-查询只选修了两门课程的学生的学号和姓名"><a href="#27-查询只选修了两门课程的学生的学号和姓名" class="headerlink" title="27. 查询只选修了两门课程的学生的学号和姓名"></a>27. 查询只选修了两门课程的学生的学号和姓名</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s_id,s_name</span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">where</span> s_id <span class="keyword">in</span>(</span><br><span class="line">    <span class="keyword">select</span> s_id</span><br><span class="line">    <span class="keyword">from</span> score</span><br><span class="line">    <span class="keyword">group</span> <span class="keyword">by</span> s_id</span><br><span class="line">    <span class="keyword">having</span> <span class="keyword">count</span>(c_id) = <span class="number">2</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">05</td>
+<td align="center">周芷若</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">吴无姬</td>
+</tr>
+<tr>
+<td align="center">07</td>
+<td align="center">郑妲己</td>
+</tr>
+</tbody></table>
+<h4 id="28-查询男生，女生的人数"><a href="#28-查询男生，女生的人数" class="headerlink" title="28. 查询男生，女生的人数"></a>28. 查询男生，女生的人数</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s_sex,<span class="keyword">count</span>(s_sex) <span class="keyword">as</span> 人数</span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> s_sex;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_sex</th>
+<th align="center">人数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">男</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">女</td>
+<td align="center">4</td>
+</tr>
+</tbody></table>
+<h4 id="29-查询名字中含有“无”字的学生信息"><a href="#29-查询名字中含有“无”字的学生信息" class="headerlink" title="29. 查询名字中含有“无”字的学生信息"></a>29. 查询名字中含有“无”字的学生信息</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">where</span> s_name <span class="keyword">like</span> <span class="string">&#x27;%无%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询语句</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_id</th>
+<th align="center">s_name</th>
+<th align="center">s_birth</th>
+<th align="center">s_sex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">01</td>
+<td align="center">赵无极</td>
+<td align="center">1990-01-01</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">06</td>
+<td align="center">吴无姬</td>
+<td align="center">1992-03-03</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
+<h4 id="30-查询同名同性学生名单，并统计同名人数"><a href="#30-查询同名同性学生名单，并统计同名人数" class="headerlink" title="30. 查询同名同性学生名单，并统计同名人数"></a>30. 查询同名同性学生名单，并统计同名人数</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> stu1.s_name,stu1.s_sex,<span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> student <span class="keyword">as</span> stu1</span><br><span class="line"><span class="keyword">join</span> student <span class="keyword">as</span> stu2</span><br><span class="line"><span class="keyword">on</span> stu1.s_id != stu2.s_id</span><br><span class="line"><span class="keyword">and</span> stu1.s_name = stu2.s_name</span><br><span class="line"><span class="keyword">and</span> stu1.s_sex = stu2.s_sex</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> stu1.s_name,stu1.s_sex;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<p>Empty set</p>
+<h4 id="31-查询1990年出生的学生名单"><a href="#31-查询1990年出生的学生名单" class="headerlink" title="31. 查询1990年出生的学生名单"></a>31. 查询1990年出生的学生名单</h4><p><strong>sql语句</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s_name</span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">where</span> s_birth <span class="keyword">like</span> <span class="string">&#x27;1990%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询结果</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">s_name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">赵无极</td>
+</tr>
+<tr>
+<td align="center">钱多多</td>
+</tr>
+<tr>
+<td align="center">孙大圣</td>
+</tr>
+<tr>
+<td align="center">李云龙</td>
+</tr>
+<tr>
+<td align="center">花木兰</td>
+</tr>
+</tbody></table>
+<h4 id="32"><a href="#32" class="headerlink" title="32."></a>32.</h4><h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h3 id="本文参考"><a href="#本文参考" class="headerlink" title="本文参考"></a>本文参考</h3><ol>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/43d8a7fa4de5">https://www.jianshu.com/p/43d8a7fa4de5</a></li>
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/VNZr6FhtKW_kXkjZ7W89aQ">https://mp.weixin.qq.com/s/VNZr6FhtKW_kXkjZ7W89aQ</a></li>
 </ol>
@@ -1004,7 +1239,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83"><span class="nav-number">2.</span> <span class="nav-text">sql编写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">建表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">学生表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">课程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E5%B8%88%E8%A1%A8"><span class="nav-number">3.3.</span> <span class="nav-text">教师表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E7%BB%A9%E8%A1%A8"><span class="nav-number">3.4.</span> <span class="nav-text">成绩表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%AD%A6%E7%94%9F%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.5.</span> <span class="nav-text">插入学生表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.6.</span> <span class="nav-text">课程表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E5%B8%88%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.7.</span> <span class="nav-text">教师表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E7%BB%A9%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.8.</span> <span class="nav-text">成绩表测试数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">SQL语句练习题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%AF%94%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E9%AB%98%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E3%80%81%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">1. 查询“01”课程比“02”课程成绩高的学生信息、课程分数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%AF%94%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E4%BD%8E%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E3%80%81%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">2. 查询“01”课程比“02”课程成绩低的学生信息、课程分数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E60%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.3.</span> <span class="nav-text">3. 查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%B0%8F%E4%BA%8E60%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%EF%BC%88%E5%8C%85%E6%8B%AC%E6%9C%89%E6%88%90%E7%BB%A9%E7%9A%84%E5%92%8C%E6%97%A0%E6%88%90%E7%BB%A9%E7%9A%84%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">4. 查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E9%80%89%E8%AF%BE%E6%80%BB%E6%95%B0%E3%80%81%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E6%80%BB%E6%88%90%E7%BB%A9"><span class="nav-number">4.5.</span> <span class="nav-text">5. 查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%9F%A5%E8%AF%A2%E2%80%9C%E6%9D%8E%E2%80%9D%E5%A7%93%E8%80%81%E5%B8%88%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-number">4.6.</span> <span class="nav-text">6. 查询“李”姓老师的数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.7.</span> <span class="nav-text">7. 查询学过“张三”老师课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.8.</span> <span class="nav-text">8. 查询没有学过“张三”老师课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E4%B8%94%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.9.</span> <span class="nav-text">9. 查询学过编号为“01”且学过编号为“02”课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.10.</span> <span class="nav-text">10. 查询学过编号为“01”但是没有学过编号为“02”课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E5%85%A8%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.11.</span> <span class="nav-text">11. 查询没有学全所有课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E6%9F%A5%E8%AF%A2%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E9%97%A8%E8%AF%BE%E4%B8%8E%E5%AD%A6%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E7%9A%84%E5%AD%A6%E7%94%9F%E6%89%80%E5%AD%A6%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.12.</span> <span class="nav-text">12. 查询至少有一门课与学号为“01”的学生所学相同的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%AD%A6%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E5%AD%A6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%AF%BE%E7%A8%8B%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E7%9A%84%E5%85%B6%E4%BB%96%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.13.</span> <span class="nav-text">13. 查询与学号为“01”学生学习的课程完全相同的其他学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AE%B2%E7%9A%84%E4%BB%BB%E6%84%8F%E4%B8%80%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%A7%93%E5%90%8D"><span class="nav-number">4.14.</span> <span class="nav-text">14. 查询没学过“张三”老师讲的任意一门课程的学生的姓名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-%E6%9F%A5%E8%AF%A2%E6%88%90%E7%BB%A9%E4%B8%A4%E9%97%A8%E5%8F%8A%E4%BB%A5%E4%B8%8A%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D%E5%8F%8A%E5%85%B6%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.15.</span> <span class="nav-text">15. 查询成绩两门及以上不及格的学生的学号、姓名及其平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0%E5%B0%8F%E4%BA%8E60%EF%BC%8C%E6%8C%89%E5%88%86%E6%95%B0%E9%99%8D%E5%BA%8F%E6%8E%92%E5%88%97%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.16.</span> <span class="nav-text">16. 查询“01”课程分数小于60，按分数降序排列的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-%E6%8C%89%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E4%BB%8E%E9%AB%98%E5%88%B0%E4%BD%8E%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E4%BB%A5%E5%8F%8A%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.17.</span> <span class="nav-text">17. 按平均成绩从高到低显示所有学生的课程成绩以及平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-%E6%9F%A5%E8%AF%A2%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E6%9C%80%E9%AB%98%E5%88%86%E3%80%81%E6%9C%80%E4%BD%8E%E5%88%86%E5%92%8C%E5%B9%B3%E5%9D%87%E5%88%86%EF%BC%8C%E4%BB%A5%E5%A6%82%E4%B8%8B%E5%BD%A2%E5%BC%8F%E6%98%BE%E7%A4%BA%EF%BC%9A%E8%AF%BE%E7%A8%8BID%E3%80%81%E8%AF%BE%E7%A8%8BName%E3%80%81%E6%9C%80%E9%AB%98%E5%88%86%E3%80%81%E6%9C%80%E4%BD%8E%E5%88%86%E3%80%81%E5%B9%B3%E5%9D%87%E5%88%86%E3%80%81%E5%8F%8A%E6%A0%BC%E7%8E%87%E3%80%81%E4%B8%AD%E7%AD%89%E7%8E%87%E3%80%81%E4%BC%98%E8%89%AF%E7%8E%87%E3%80%81%E4%BC%98%E7%A7%80%E7%8E%87-%E2%80%93-%E5%8F%8A%E6%A0%BC%EF%BC%9A-gt-60%EF%BC%8C%E4%B8%AD%E7%AD%89%EF%BC%9A70-80%EF%BC%8C%E4%BC%98%E8%89%AF%E7%8E%87%EF%BC%9A80-90%EF%BC%8C%E4%BC%98%E7%A7%80%E7%8E%87%EF%BC%9A-gt-90"><span class="nav-number">4.18.</span> <span class="nav-text">18. 查询各科成绩最高分、最低分和平均分，以如下形式显示：课程ID、课程Name、最高分、最低分、平均分、及格率、中等率、优良率、优秀率 – 及格：&gt;&#x3D;60，中等：70-80，优良率：80-90，优秀率：&gt;&#x3D;90</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">5.</span> <span class="nav-text">未完待续</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">本文参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sql%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83"><span class="nav-number">2.</span> <span class="nav-text">sql编写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">建表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%A6%E7%94%9F%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">学生表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">课程表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E5%B8%88%E8%A1%A8"><span class="nav-number">3.3.</span> <span class="nav-text">教师表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E7%BB%A9%E8%A1%A8"><span class="nav-number">3.4.</span> <span class="nav-text">成绩表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%AD%A6%E7%94%9F%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.5.</span> <span class="nav-text">插入学生表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.6.</span> <span class="nav-text">课程表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%99%E5%B8%88%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.7.</span> <span class="nav-text">教师表测试数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E7%BB%A9%E8%A1%A8%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">3.8.</span> <span class="nav-text">成绩表测试数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">SQL语句练习题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%AF%94%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E9%AB%98%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E3%80%81%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">1. 查询“01”课程比“02”课程成绩高的学生信息、课程分数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%AF%94%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E4%BD%8E%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E3%80%81%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">2. 查询“01”课程比“02”课程成绩低的学生信息、课程分数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E60%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.3.</span> <span class="nav-text">3. 查询平均成绩大于等于60分的学生编号、学生姓名、平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%B0%8F%E4%BA%8E60%E5%88%86%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%EF%BC%88%E5%8C%85%E6%8B%AC%E6%9C%89%E6%88%90%E7%BB%A9%E7%9A%84%E5%92%8C%E6%97%A0%E6%88%90%E7%BB%A9%E7%9A%84%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">4. 查询平均成绩小于60分的学生编号、学生姓名、平均成绩（包括有成绩的和无成绩的）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E7%94%9F%E7%BC%96%E5%8F%B7%E3%80%81%E5%AD%A6%E7%94%9F%E5%A7%93%E5%90%8D%E3%80%81%E9%80%89%E8%AF%BE%E6%80%BB%E6%95%B0%E3%80%81%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E6%80%BB%E6%88%90%E7%BB%A9"><span class="nav-number">4.5.</span> <span class="nav-text">5. 查询所有学生的学生编号、学生姓名、选课总数、所有课程的总成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%9F%A5%E8%AF%A2%E2%80%9C%E6%9D%8E%E2%80%9D%E5%A7%93%E8%80%81%E5%B8%88%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-number">4.6.</span> <span class="nav-text">6. 查询“李”姓老师的数量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.7.</span> <span class="nav-text">7. 查询学过“张三”老师课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.8.</span> <span class="nav-text">8. 查询没有学过“张三”老师课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E4%B8%94%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.9.</span> <span class="nav-text">9. 查询学过编号为“01”且学过编号为“02”课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E5%AD%A6%E8%BF%87%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C02%E2%80%9D%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.10.</span> <span class="nav-text">10. 查询学过编号为“01”但是没有学过编号为“02”课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E5%85%A8%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.11.</span> <span class="nav-text">11. 查询没有学全所有课程的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-%E6%9F%A5%E8%AF%A2%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E9%97%A8%E8%AF%BE%E4%B8%8E%E5%AD%A6%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E7%9A%84%E5%AD%A6%E7%94%9F%E6%89%80%E5%AD%A6%E7%9B%B8%E5%90%8C%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.12.</span> <span class="nav-text">12. 查询至少有一门课与学号为“01”的学生所学相同的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%AD%A6%E5%8F%B7%E4%B8%BA%E2%80%9C01%E2%80%9D%E5%AD%A6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%AF%BE%E7%A8%8B%E5%AE%8C%E5%85%A8%E7%9B%B8%E5%90%8C%E7%9A%84%E5%85%B6%E4%BB%96%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.13.</span> <span class="nav-text">13. 查询与学号为“01”学生学习的课程完全相同的其他学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-%E6%9F%A5%E8%AF%A2%E6%B2%A1%E5%AD%A6%E8%BF%87%E2%80%9C%E5%BC%A0%E4%B8%89%E2%80%9D%E8%80%81%E5%B8%88%E8%AE%B2%E7%9A%84%E4%BB%BB%E6%84%8F%E4%B8%80%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%A7%93%E5%90%8D"><span class="nav-number">4.14.</span> <span class="nav-text">14. 查询没学过“张三”老师讲的任意一门课程的学生的姓名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-%E6%9F%A5%E8%AF%A2%E6%88%90%E7%BB%A9%E4%B8%A4%E9%97%A8%E5%8F%8A%E4%BB%A5%E4%B8%8A%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D%E5%8F%8A%E5%85%B6%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.15.</span> <span class="nav-text">15. 查询成绩两门及以上不及格的学生的学号、姓名及其平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-%E6%9F%A5%E8%AF%A2%E2%80%9C01%E2%80%9D%E8%AF%BE%E7%A8%8B%E5%88%86%E6%95%B0%E5%B0%8F%E4%BA%8E60%EF%BC%8C%E6%8C%89%E5%88%86%E6%95%B0%E9%99%8D%E5%BA%8F%E6%8E%92%E5%88%97%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.16.</span> <span class="nav-text">16. 查询“01”课程分数小于60，按分数降序排列的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17-%E6%8C%89%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E4%BB%8E%E9%AB%98%E5%88%B0%E4%BD%8E%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E4%BB%A5%E5%8F%8A%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9"><span class="nav-number">4.17.</span> <span class="nav-text">17. 按平均成绩从高到低显示所有学生的课程成绩以及平均成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18-%E6%9F%A5%E8%AF%A2%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E6%9C%80%E9%AB%98%E5%88%86%E3%80%81%E6%9C%80%E4%BD%8E%E5%88%86%E5%92%8C%E5%B9%B3%E5%9D%87%E5%88%86%EF%BC%8C%E4%BB%A5%E5%A6%82%E4%B8%8B%E5%BD%A2%E5%BC%8F%E6%98%BE%E7%A4%BA%EF%BC%9A%E8%AF%BE%E7%A8%8BID%E3%80%81%E8%AF%BE%E7%A8%8BName%E3%80%81%E6%9C%80%E9%AB%98%E5%88%86%E3%80%81%E6%9C%80%E4%BD%8E%E5%88%86%E3%80%81%E5%B9%B3%E5%9D%87%E5%88%86%E3%80%81%E5%8F%8A%E6%A0%BC%E7%8E%87%E3%80%81%E4%B8%AD%E7%AD%89%E7%8E%87%E3%80%81%E4%BC%98%E8%89%AF%E7%8E%87%E3%80%81%E4%BC%98%E7%A7%80%E7%8E%87-%E2%80%93-%E5%8F%8A%E6%A0%BC%EF%BC%9A-gt-60%EF%BC%8C%E4%B8%AD%E7%AD%89%EF%BC%9A70-80%EF%BC%8C%E4%BC%98%E8%89%AF%E7%8E%87%EF%BC%9A80-90%EF%BC%8C%E4%BC%98%E7%A7%80%E7%8E%87%EF%BC%9A-gt-90"><span class="nav-number">4.18.</span> <span class="nav-text">18. 查询各科成绩最高分、最低分和平均分，以如下形式显示：课程ID、课程Name、最高分、最低分、平均分、及格率、中等率、优良率、优秀率 – 及格：&gt;&#x3D;60，中等：70-80，优良率：80-90，优秀率：&gt;&#x3D;90</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19-%E6%8C%89%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%B9%B6%E6%98%BE%E7%A4%BA%E6%8E%92%E5%90%8D"><span class="nav-number">4.19.</span> <span class="nav-text">19. 按各科成绩进行排序，并显示排名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E7%94%9F%E7%9A%84%E6%80%BB%E6%88%90%E7%BB%A9%E5%B9%B6%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%90%8D"><span class="nav-number">4.20.</span> <span class="nav-text">20. 查询学生的总成绩并进行排名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21-%E6%9F%A5%E8%AF%A2%E4%B8%8D%E5%90%8C%E8%80%81%E5%B8%88%E6%89%80%E6%95%99%E8%AF%BE%E7%A8%8B%E5%B9%B3%E5%9D%87%E5%88%86%EF%BC%8C%E4%BB%8E%E9%AB%98%E5%88%B0%E4%BD%8E%E6%98%BE%E7%A4%BA"><span class="nav-number">4.21.</span> <span class="nav-text">21. 查询不同老师所教课程平均分，从高到低显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E7%9A%84%E6%88%90%E7%BB%A9%E7%AC%AC2%E5%90%8D%E5%88%B0%E7%AC%AC3%E5%90%8D%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E5%8F%8A%E8%AF%A5%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9"><span class="nav-number">4.22.</span> <span class="nav-text">22. 查询所有课程的成绩第2名到第3名的学生信息及该课程成绩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23-%E7%BB%9F%E8%AE%A1%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E5%90%84%E5%88%86%E6%95%B0%E6%AE%B5%E4%BA%BA%E6%95%B0%EF%BC%9A%E8%AF%BE%E7%A8%8B%E7%BC%96%E5%8F%B7%EF%BC%8C%E8%AF%BE%E7%A8%8B%E5%90%8D%E7%A7%B0%EF%BC%8C-100-85-%EF%BC%8C-85-70-%EF%BC%8C-70-60-%EF%BC%8C-60-0-%E5%8F%8A%E6%89%80%E5%8D%A0%E7%99%BE%E5%88%86%E6%AF%94"><span class="nav-number">4.23.</span> <span class="nav-text">23. 统计各科成绩各分数段人数：课程编号，课程名称，[100-85]，[85-70]，[70-60]，[60-0]及所占百分比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24-%E6%9F%A5%E8%AF%A2%E5%AD%A6%E7%94%9F%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%8F%8A%E5%85%B6%E5%90%8D%E6%AC%A1"><span class="nav-number">4.24.</span> <span class="nav-text">24. 查询学生平均成绩及其名次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#25-%E6%9F%A5%E8%AF%A2%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E5%89%8D%E4%B8%89%E5%90%8D%E7%9A%84%E8%AE%B0%E5%BD%95"><span class="nav-number">4.25.</span> <span class="nav-text">25. 查询各科成绩前三名的记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#26-%E6%9F%A5%E8%AF%A2%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E8%A2%AB%E9%80%89%E4%BF%AE%E7%9A%84%E5%AD%A6%E7%94%9F%E6%95%B0"><span class="nav-number">4.26.</span> <span class="nav-text">26. 查询每门课程被选修的学生数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#27-%E6%9F%A5%E8%AF%A2%E5%8F%AA%E9%80%89%E4%BF%AE%E4%BA%86%E4%B8%A4%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E5%92%8C%E5%A7%93%E5%90%8D"><span class="nav-number">4.27.</span> <span class="nav-text">27. 查询只选修了两门课程的学生的学号和姓名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#28-%E6%9F%A5%E8%AF%A2%E7%94%B7%E7%94%9F%EF%BC%8C%E5%A5%B3%E7%94%9F%E7%9A%84%E4%BA%BA%E6%95%B0"><span class="nav-number">4.28.</span> <span class="nav-text">28. 查询男生，女生的人数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#29-%E6%9F%A5%E8%AF%A2%E5%90%8D%E5%AD%97%E4%B8%AD%E5%90%AB%E6%9C%89%E2%80%9C%E6%97%A0%E2%80%9D%E5%AD%97%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">4.29.</span> <span class="nav-text">29. 查询名字中含有“无”字的学生信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#30-%E6%9F%A5%E8%AF%A2%E5%90%8C%E5%90%8D%E5%90%8C%E6%80%A7%E5%AD%A6%E7%94%9F%E5%90%8D%E5%8D%95%EF%BC%8C%E5%B9%B6%E7%BB%9F%E8%AE%A1%E5%90%8C%E5%90%8D%E4%BA%BA%E6%95%B0"><span class="nav-number">4.30.</span> <span class="nav-text">30. 查询同名同性学生名单，并统计同名人数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#31-%E6%9F%A5%E8%AF%A21990%E5%B9%B4%E5%87%BA%E7%94%9F%E7%9A%84%E5%AD%A6%E7%94%9F%E5%90%8D%E5%8D%95"><span class="nav-number">4.31.</span> <span class="nav-text">31. 查询1990年出生的学生名单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#32"><span class="nav-number">4.32.</span> <span class="nav-text">32.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">5.</span> <span class="nav-text">未完待续</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">本文参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
