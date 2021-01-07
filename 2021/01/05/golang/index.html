@@ -20,30 +20,33 @@
     var CONFIG = {"hostname":"charles737.me","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Email: cl426886@gmail.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Charles737的博客">
-<meta property="og:url" content="https://charles737.me/index.html">
+  <meta name="description" content="前言记录Golang学习过程中发现的问题，以便随时查看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang Debug">
+<meta property="og:url" content="https://charles737.me/2021/01/05/golang/index.html">
 <meta property="og:site_name" content="Charles737的博客">
-<meta property="og:description" content="Email: cl426886@gmail.com">
+<meta property="og:description" content="前言记录Golang学习过程中发现的问题，以便随时查看">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-05T14:42:50.547Z">
+<meta property="article:modified_time" content="2021-01-07T01:17:52.767Z">
 <meta property="article:author" content="Charles737">
+<meta property="article:tag" content="Golang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://charles737.me/">
+<link rel="canonical" href="https://charles737.me/2021/01/05/golang/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Charles737的博客</title>
+  <title>Golang Debug | Charles737的博客</title>
   
 
 
@@ -157,9 +160,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -175,10 +179,9 @@
       <meta itemprop="name" content="Charles737的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/05/golang/" class="post-title-link" itemprop="url">Golang Debug</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Golang Debug
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -207,6 +210,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -217,16 +227,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>记录Golang学习过程中发现的问题，以便随时查看</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/05/golang/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>记录Golang学习过程中发现的问题，以便随时查看</p>
+<a id="more"></a>
+
+<h3 id="报错场景：Golang-在-Goland-中go-get-u-github-com-gin-gonic-gin无法下载"><a href="#报错场景：Golang-在-Goland-中go-get-u-github-com-gin-gonic-gin无法下载" class="headerlink" title="报错场景：Golang 在 Goland 中go get -u github.com/gin-gonic/gin无法下载"></a>报错场景：Golang 在 Goland 中<code>go get -u github.com/gin-gonic/gin</code>无法下载</h3><ul>
+<li><p>在<code>go get</code>依赖包时，长时间无响应。报如下错误：</p>
+</li>
+<li><p><code>dial tcp 172.217.27.145:443: i/o timeout</code></p>
+</li>
+</ul>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
+<li><p>使用七牛云的<code>go module</code>镜像</p>
+</li>
+<li><p>在当前终端输入如下两行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go env -w GO111MODULE=on</span><br><span class="line">$ go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure></li>
+<li><p>再次输入<code>go env</code>时，会发现 GOPROXY 已经发生改变：</p>
+</li>
+<li><p><code>GOPROXY=&quot;https://goproxy.cn,direct&quot;</code></p>
+</li>
+<li><p>再次输入 <code>go get -u github.com/gin-gonic/gin</code>时正常下载</p>
+</li>
+</ul>
+<hr>
+
     </div>
 
     
@@ -235,177 +258,52 @@
 
     <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
     </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://charles737.me/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.png">
-      <meta itemprop="name" content="Charles737">
-      <meta itemprop="description" content="Email: cl426886@gmail.com">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Charles737的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/" class="post-title-link" itemprop="url">sql练习题目</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-13 09:44:19" itemprop="dateCreated datePublished" datetime="2020-10-13T09:44:19+08:00">2020-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-10 21:57:00" itemprop="dateModified" datetime="2020-12-10T21:57:00+08:00">2020-12-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>基于MySQL的sql练习题目。时常练习，以防手生。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Charles737
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://charles737.me/2021/01/05/golang/" title="Golang Debug">https://charles737.me/2021/01/05/golang/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    <div>
-      
-    </div>
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Golang/" rel="tag"># Golang</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://charles737.me/2020/10/11/hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.png">
-      <meta itemprop="name" content="Charles737">
-      <meta itemprop="description" content="Email: cl426886@gmail.com">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Charles737的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/11/hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">hexo 常用命令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-11 14:46:04" itemprop="dateCreated datePublished" datetime="2020-10-11T14:46:04+08:00">2020-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-07 09:14:30" itemprop="dateModified" datetime="2021-01-07T09:14:30+08:00">2021-01-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">常用命令</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>记录hexo的常用命令，以便随时查看</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/11/hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
 
-    <div>
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/13/sql%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/" rel="prev" title="sql练习题目">
+      <i class="fa fa-chevron-left"></i> sql练习题目
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -458,6 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%99%E5%9C%BA%E6%99%AF%EF%BC%9AGolang-%E5%9C%A8-Goland-%E4%B8%ADgo-get-u-github-com-gin-gonic-gin%E6%97%A0%E6%B3%95%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.</span> <span class="nav-text">报错场景：Golang 在 Goland 中go get -u github.com&#x2F;gin-gonic&#x2F;gin无法下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
